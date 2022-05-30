@@ -36,7 +36,6 @@ try{
 }
   }
   
-
   @Get(':id')
   getById(@Res() response, @Param('id') id : string):Promise<any>{
    const data = this.CandidacyService.getById(id);

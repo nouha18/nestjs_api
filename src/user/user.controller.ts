@@ -2,7 +2,7 @@
 import { Controller,Get,Post,Res,Param,Body,Delete,Patch, HttpStatus } from '@nestjs/common';
 import { response } from 'express';
 import { UserService } from './user.service';
-
+import {UserDto} from './User.dto';
 @Controller('user')
 export class UserController {
 constructor(private readonly userService: UserService){}
@@ -20,6 +20,16 @@ register(@Res() response,@Body('username') username: string, @Body('email') emai
     return response.status(HttpStatus.CREATED).json({message:'user has been created !'});
  }catch(err){
  return response.status(HttpStatus.INTERNAL_SERVER_ERROR).json({message:err.message});
+ }
+}
+
+@Post('dto')
+registeruser(@Res() response,@Body() userDto: UserDto):any{
+ try{
+    const newuser = this.userService.createnewUser(userDto.username,userDto.email,userDto.password,userDto.phone);
+    return response.status(HttpStatus.CREATED).json({message:'user has been created !'});
+ }catch(err){
+ return response.status(HttpStatus.EXPECTATION_FAILED).json({message:err.message});
  }
 }
 
