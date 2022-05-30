@@ -2,10 +2,10 @@
 rest api with nestjs auth jwt gards and  file system
 
 ## to start running api : http://localhost:3000/
-npm run start : dev
+npm run start : dev :ghost: 	:green_heart: 
 
 ****
-	:ghost: 	:green_heart:  ##Swagger documentation http://localhost:3000/api
+	 ##Swagger documentation http://localhost:3000/api
   
   
   :smiley_cat:  ##Routes :
